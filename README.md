@@ -14,6 +14,8 @@ npm start
 ## Code Components
 - `index.js` - Router Component to handle navigation across home page and histogram page, with a 404 page, to handle direct URL manipulation
 
+- `device.js` - Used to specify screen width's to add responsive design through media queries in css
+
 ### hooks
 - `useD3.js` - Integrating D3 data visualization library with React. We cannot use D3 directly since it requires direct manipulation with the DOM elements.
 
