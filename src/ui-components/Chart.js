@@ -49,12 +49,12 @@ function Chart({ data }) {
                 div.transition()
                     .duration(50)
                     .style('opacity', '1');
-                div.html("Occurance: " + d.occurance)
+                div.html("Word: " + d.word + "<br />Occurance: " + d.occurance)
                     .style('left', (event.pageX + 10) + "px")
                     .style('top', (event.pageY - 15) + "px")
                     .style('background-color', "#eee")
                     .style('border', '1px solid #85671e')
-                    .style('border-radius', '20px')
+                    .style('border-radius', '10px')
                     .style('padding', '5px')
             })
             .on('mouseout', function(event, d) {

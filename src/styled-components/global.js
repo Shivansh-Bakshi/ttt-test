@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
 import backdrop from '../res/backdrop.png'
-import Chart from "../ui-components/Chart";
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -32,7 +31,7 @@ export const Element = styled.div`
 
 export const Button = styled.button`
     background-color: transparent;
-    border: 2px solid #4a008f;
+    border: 2px solid #f6bf3a;
     border-radius: 20px;
     color: #eee;
     padding: 16px 32px;
@@ -40,12 +39,11 @@ export const Button = styled.button`
     text-decoration: none;
     font-size: 16px;
     margin: auto;
-    margin-top: 0px;
     transition-duration: 0.2s;
     cursor: pointer;
     &:hover {
-        background-color: #4a008f;
-        color: white;
+        background-color: #f6bf3a;
+        color: black;
     }
 `
 
