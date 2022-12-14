@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { Button, Element, Text } from "../styled-components/global";
 import Chart from "../ui-components/Chart";
