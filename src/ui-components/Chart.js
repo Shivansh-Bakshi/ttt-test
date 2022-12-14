@@ -4,34 +4,33 @@ import { useD3 } from '../hooks/useD3';
 import { SVG } from '../styled-components/global';
 
 function Chart({ data }) {
-    const ref = useD3(
-      (svg) => {
+    const renderChartFn = (svg) => {            
         const height = 400;
         const width = 900;
         const margin = { top: 20, right: 30, bottom: 30, left: 40 };
-  
+
         const x = d3.scaleBand()
-          .domain(data.map((d) => d.word))
-          .rangeRound([margin.left, width - margin.right])
-          .padding(0.1);
-  
+            .domain(data.map((d) => d.word))
+            .rangeRound([margin.left, width - margin.right])
+            .padding(0.1);
+
         const y = d3.scaleLinear()
-          .domain([0, d3.max(data, (d) => d.occurance)])
-          .rangeRound([height - margin.bottom, margin.top]);
-  
+            .domain([0, d3.max(data, (d) => d.occurance)])
+            .rangeRound([height - margin.bottom, margin.top]);
+
         const xAxis = (g) => g.attr("transform", `translate(0,${height - margin.bottom})`)
-        .style("color", "#eee")
-        .style("font-size", "14px")
-        .call(d3.axisBottom(x).ticks(null, "s"))
-  
+            .style("color", "#eee")
+            .style("font-size", "14px")
+            .call(d3.axisBottom(x).ticks(null, "s"))
+
         const yAxis = (g) => g.attr("transform", `translate(${margin.left},0)`)
             .style("color", "#eee")
             .style("font-size", "14px")
             .call(d3.axisLeft(y).ticks(null, "s"))
-  
+
         svg.select(".x-axis").call(xAxis);
         svg.select(".y-axis").call(yAxis);
-  
+
         const div = d3.select("body").append("div")
             .style('position', 'absolute')
             .style("opacity", '0');
@@ -41,13 +40,13 @@ function Chart({ data }) {
             .selectAll(".bar")
             .data(data)
             .join("rect")
-            .on('mousemove', function(event, d) {
+            .on('mousemove', function (event, d) {
                 d3.select(this).transition()
-                    .duration(50)
+                    .duration(30)
                     .attr('opacity', '0.85')
-                
+
                 div.transition()
-                    .duration(50)
+                    .duration(30)
                     .style('opacity', '1');
                 div.html("Word: " + d.word + "<br />Occurance: " + d.occurance)
                     .style('left', (event.pageX + 10) + "px")
@@ -57,13 +56,13 @@ function Chart({ data }) {
                     .style('border-radius', '10px')
                     .style('padding', '5px')
             })
-            .on('mouseout', function(event, d) {
+            .on('mouseout', function (event, d) {
                 d3.select(this).transition()
-                    .duration(50)
+                    .duration(30)
                     .attr('opacity', '1')
 
                 div.transition()
-                    .duration(50)
+                    .duration(30)
                     .style('opacity', '0')
             })
             .attr("class", "bar")
@@ -71,17 +70,17 @@ function Chart({ data }) {
             .attr("width", x.bandwidth())
             .attr("y", (d) => y(d.occurance))
             .attr("height", (d) => y(0) - y(d.occurance))
-        },
-        data
-    );
-  
+    }
+
+    const ref = useD3(renderChartFn, data);
+
     return (
-      <SVG ref={ref}>
-        <g className="plot-area" />
-        <g className="x-axis" />
-        <g className="y-axis" />
-      </SVG>
+        <SVG ref={ref}>
+            <g className="plot-area" />
+            <g className="x-axis" />
+            <g className="y-axis" />
+        </SVG>
     );
-  }
-  
-  export default Chart;
+}
+
+export default Chart;
