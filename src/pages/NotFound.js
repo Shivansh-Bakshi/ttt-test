@@ -1,4 +1,3 @@
-import parse from "../parser/core";
 import { Element, Button, HeaderText } from "../styled-components/global";
 import Page from "../ui-components/Page";
 import { useNavigate } from "react-router";
