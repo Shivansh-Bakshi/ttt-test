@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import backdrop from '../res/backdrop.png'
+import Chart from "../ui-components/Chart";
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -52,10 +53,18 @@ export const Text = styled.h3`
     margin: auto;
     color: #eee;
     font-size: 24px;
+    margin-bottom: 0px;
 `
 
 export const HeaderText = styled.h1`
     margin: auto;
     color: #eee;
     font-size: 40px;
+`
+
+export const SVG = styled.svg`
+    margin: auto;
+    margin-top: 0px;
+    height: 400px;
+    width: 95%;
 `

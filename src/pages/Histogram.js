@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { Button, Element, Text } from "../styled-components/global";
+import Chart from "../ui-components/Chart";
 import Page from "../ui-components/Page";
 
 const Histogram = () => {
@@ -8,8 +9,8 @@ const Histogram = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log(location)
-    }, [])
+        console.log(location.state)
+    }, [location.state])
 
     const homeAction = (e) => {
         e.preventDefault();
@@ -30,7 +31,8 @@ const Histogram = () => {
     return(
         <Page>
             <Element>
-                <Text>Histogram Displayed Here</Text>
+                <Text>Word Occurance Histogram</Text>
+                <Chart data={location.state.slice(0, 20)} />
             </Element>
         </Page>
     )
