@@ -4,7 +4,7 @@ import { useD3 } from '../hooks/useD3';
 import { SVG } from '../styled-components/global';
 
 function Chart({ data }) {
-    const renderChartFn = (svg) => {            
+    const renderChartFn = (svg) => {
         const height = 400;
         const width = 900;
         const margin = { top: 20, right: 30, bottom: 30, left: 40 };
@@ -34,7 +34,7 @@ function Chart({ data }) {
         const div = d3.select("body").append("div")
             .style('position', 'absolute')
             .style("opacity", '0');
-
+        
         svg.select(".plot-area")
             .attr("fill", "#f6bf3a")
             .selectAll(".bar")
