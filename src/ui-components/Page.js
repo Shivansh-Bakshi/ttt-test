@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { Container, GlobalStyle } from '../styled-components/global';
+import { Container } from '../styled-components/global';
 
 const Page = ({ children }) => {
     return(
         <div>
-            <GlobalStyle />
             <Container>
                 {children}
             </Container>

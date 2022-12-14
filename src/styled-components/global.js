@@ -34,7 +34,6 @@ export const Button = styled.button`
     margin: auto;
     transition-duration: 0.2s;
     cursor: pointer;
-
     &:hover {
         background-color: #4a008f;
         color: white;
