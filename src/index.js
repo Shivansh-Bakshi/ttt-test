@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { GlobalStyle } from './styled-components/global';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  Home,
+  Histogram
+} from './pages';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  <Router>
     <GlobalStyle />
-    <App />
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/histogram' element={<Histogram />} />
+    </Routes>
+  </Router>
   </React.StrictMode>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
