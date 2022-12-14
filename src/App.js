@@ -5,7 +5,6 @@ import Page from "./ui-components/Page";
 const App = () => {
     const submitAction = (e) => {
         e.preventDefault();
-        console.log("Clicked Submit!");
         fetch('https://www.terriblytinytales.com/test.txt')
             .then(response => response.text())
             .then((text) => {
