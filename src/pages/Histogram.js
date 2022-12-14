@@ -8,10 +8,6 @@ const Histogram = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log(location.state)
-    }, [location.state])
-
     const homeAction = (e) => {
         e.preventDefault();
         navigate('/');
